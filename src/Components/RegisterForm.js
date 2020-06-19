@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 function RegisterForm(props) {
     const [state, setState] = useState({
@@ -17,14 +17,31 @@ function RegisterForm(props) {
         }))
     }
 
+    // const sendLoginToServer = () => {
+    //     if(state.email.length && state.password.length) {
+    //         props.showError(null);
+    //         const payload={
+    //             'email': state.email,
+    //             'password': state.password,
+    //         }
+    //     }
+    //     axios
+    // }
+
     const redirectToLogin = () => {
         props.updateTitle('Login')
-        props.history.push('/home');
+        props.history.push('/login');
     }
     
     const handleSubmit = e => {
         e.preventDefault();
 
+        // if(state.password === confirmPassword) {
+        //     sendLoginToServer()
+        // } else {
+        //     props.showError('Passwords do not match');
+        // }
+        
     }
 
     return(
@@ -36,20 +53,24 @@ function RegisterForm(props) {
                         id='email'
                         placeholder='Email'
                         value={state.email}
+                        onChange={handleChange}
                     />
                     <input 
                         type='password'
                         id='password'
                         placeholder='Password'
                         value={state.password}
+                        onChange={handleChange}
                     />
                     <input 
                         type='password'
                         id='password'
                         placeholder='Confirm Password'
                         value={state.confirmPassword}
+                        onChange={handleChange}
                     />
-                    <button>Register</button>
+                    <button type='submit'>Register</button>
+                    {/* add onChange once handleSubmit is completed */}
             </form>
             <div>
                 <p>Already have an account?</p>
@@ -59,4 +80,4 @@ function RegisterForm(props) {
     );
 };
 
-export default RegisterForm;
+export default withRouter(RegisterForm);

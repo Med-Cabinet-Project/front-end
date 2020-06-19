@@ -1,11 +1,21 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom'
 
-function Header () {
+
+function Header (props) {
+    const capitalize = (s) => {
+        if (typeof s !== 'string') return ''
+        return s.charAt(0).toUpperCase() + s.slice(1)
+    }
+    const title = capitalize(props.location.pathname.substring(1,props.location.pathname.length))
+
     return(
         <nav>
-            Register
+            <div className='header'>
+                <span>{props.title || title}</span>
+            </div>
         </nav>
     )
 };
 
-export default Header;
+export default withRouter(Header);
