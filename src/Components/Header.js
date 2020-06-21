@@ -12,6 +12,7 @@ function Header (props) {
     return(
         <nav>
             <div className='header'>
+                <h1>Med-Cabinet</h1>
                 <span>{props.title || title}</span>
             </div>
         </nav>

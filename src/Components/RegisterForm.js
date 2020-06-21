@@ -45,7 +45,10 @@ function RegisterForm(props) {
     }
 
     return(
-        <div>
+        <div className='register'>
+            <h1>Med-Cabinet</h1>
+        <div className='register-form'>
+            <h2>Register</h2>
             <form>
                 <label htmlFor='email' />
                     <input 
@@ -54,6 +57,7 @@ function RegisterForm(props) {
                         placeholder='Email'
                         value={state.email}
                         onChange={handleChange}
+                        required
                     />
                     <input 
                         type='password'
@@ -61,6 +65,7 @@ function RegisterForm(props) {
                         placeholder='Password'
                         value={state.password}
                         onChange={handleChange}
+                        required
                     />
                     <input 
                         type='password'
@@ -68,14 +73,16 @@ function RegisterForm(props) {
                         placeholder='Confirm Password'
                         value={state.confirmPassword}
                         onChange={handleChange}
+                        required
                     />
                     <button type='submit'>Register</button>
                     {/* add onChange once handleSubmit is completed */}
             </form>
-            <div>
+            <div className='redirect'> 
                 <p>Already have an account?</p>
                 <span onClick={() => redirectToLogin()}>Login Here</span>
             </div>
+        </div>
         </div>
     );
 };

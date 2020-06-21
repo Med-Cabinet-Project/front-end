@@ -1,8 +1,11 @@
-import React from 'react';
-function Home(props) {
+import React, { useState } from 'react';
+
+import Header from './Header';
+
+function Home() {
     return(
-        <div className="mt-2">
-            Home page content
+        <div className="home">
+           <h1>Med-Cabinet</h1>
         </div>
     )
 }

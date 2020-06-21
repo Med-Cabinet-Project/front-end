@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 
-import Header from './Header';
-
 function Login(props) {
     const[state, setState] = useState({
         email:'',
@@ -34,7 +32,10 @@ function Login(props) {
     }
 
     return(
-        <div>
+        <div className='login'>
+            <h1>Med-Cabinet</h1>
+        <div className='login-form'>
+            <h2>Login</h2>
             <form>
                 <label htmlFor='email' />
                     <input 
@@ -43,20 +44,23 @@ function Login(props) {
                         placeholder='Email'
                         value={state.email}
                         onChange={handleChange}
+                        required
                     />
                     <input 
                         type='password'
                         id='password'
                         placeholder='Password'
-                        valye={state.password}
+                        value={state.password}
                         onChange={handleChange}
+                        required
                     />
-                    <button type='submit'>Sign In</button>
+                    <button type='submit' >Sign In</button>
                     {/* add onChange once handleSubmit is completed */}
             </form>
-            <div>
+            <div className='redirect'>
                 <p>Don't have an account?</p>
                 <span onClick={() => redirectToRegister()}>Register Here</span>
+            </div>
             </div>
         </div>
     );
