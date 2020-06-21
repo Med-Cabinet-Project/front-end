@@ -28,7 +28,7 @@ function Login(props) {
 
     const redirectToRegister = () => {
         props.history.push('/register'); 
-        props.updateTitle('Register');
+        // props.updateTitle('Register');
     }
 
     return(
