@@ -3,6 +3,9 @@ $green-2: #93CB56;
 $green-3: #7BAA47;
 $green-4: #355A20;
 
+$phone: 800px;
+$table: 1000px;
+
 @mixin flex-column {
     display: flex;
     flex-direction: column;
@@ -43,13 +46,23 @@ $green-4: #355A20;
 
 
 body {
-    background-image: url('./Assets/plant.jpg');
+    background-image: url('./Assets/medical2.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: 100% 0;
     background-size:50% 100%;
     overflow: hidden;
     cursor: url(http://cur.cursors-4u.net/nature/nat-2/nat120.cur), auto !important;
+    
+
+    @media screen and(max-width: $table) {
+        background-size: cover;
+    }
+
+    @media screen and (max-width: $phone) {
+        background-image: none;
+        margin: auto;
+    }
 }
 
 
@@ -63,6 +76,15 @@ body {
     font-size: 24px;
     font-weight: 500;
     cursor: context-menu;
+
+    @media screen and (max-width: $phone) {
+        display: flex;
+        // flex-direction: row;
+        justify-content: space-around;
+        height: auto;
+        // flex-wrap: wrap;
+        margin:auto
+    }
 }
 
 .link {
@@ -74,12 +96,30 @@ body {
             margin:15px;
             @include transform;
         }
+
+        @media screen and (max-width: $table) {
+            color: $green-2
+        }
+
+        @media screen and (max-width: $phone) {
+            padding: 0px 80px;
+        }
 }
 
 .home {
     position: fixed;
     top: 30%;
     left: 10%;
+
+    @media screen and(max-width: $table) {
+        width: min-content;
+        margin-left: 4%;
+        
+    }
+
+    @media screen and (max-width: $phone) {
+        left: 18%
+    }
 }
 
 
@@ -120,14 +160,27 @@ span:hover{
     @include flex-column-all-center;
     width: fit-content;
     margin: auto;
-    
 }
 
 .login, .register {
     margin: 60px;
     position: fixed;
     top: 8%;
-    left: 8%;
+    left: 12%;
+    background-size:50% 100%;
+    width: min-content;
+
+    @media screen and(max-width: $table) {
+        width: min-content;
+        margin-left: 3%;
+        top: 0%;
+    }
+
+    @media screen and (max-width: $phone) {
+        width: 77%;
+        margin-left: 0%;
+        margin-right: 0%;
+    }
 }
 
 
@@ -136,15 +189,19 @@ h1 {
     @include transition;
     font-size: 88px;
     font-weight: bolder;
-    padding-top: 60px;
     text-align: center;
 
         &:hover {
             @include gradient;
-            transform: rotate(-20deg);
             @include transition;
+            transform: rotate(-20deg);
             text-shadow: none;
-            outline: 0 none;        
+            
+            @media screen and (max-width: $table) {
+                width: min-content;
+                margin-left: 4%;
+            }
+            
 }
 
 h2 {
@@ -153,7 +210,6 @@ h2 {
 }
 
 button {
-    
     background-color: $green-4;
 }
 
