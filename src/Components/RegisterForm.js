@@ -9,13 +9,16 @@ function RegisterForm(props) {
         successAlert:''
     })
 
-    const handleChange = e => {
+    const handleChange = (e) => {
+        e.preventDefault();
         const { id, value } = e.target
         setState(prevState => ({
             ...prevState,
             [id]: value
         }))
     }
+
+    console.log(state);
 
     // const sendLoginToServer = () => {
     //     if(state.email.length && state.password.length) {
@@ -60,7 +63,7 @@ function RegisterForm(props) {
                         required
                     />
                     <input 
-                        type='password'
+                        type='text'
                         id='password'
                         placeholder='Password'
                         value={state.password}
@@ -68,19 +71,21 @@ function RegisterForm(props) {
                         required
                     />
                     <input 
-                        type='password'
-                        id='password'
+                        type='text'
+                        id='confirm-password'
                         placeholder='Confirm Password'
-                        value={state.confirmPassword}
+                        // value={state.confirmPassword}
                         onChange={handleChange}
                         required
                     />
                     <button type='submit'>Register</button>
+
                     {/* add onChange once handleSubmit is completed */}
             </form>
             <div className='redirect'> 
                 <p>Already have an account?</p>
                 <span onClick={() => redirectToLogin()}>Login Here</span>
+    
             </div>
         </div>
         </div>

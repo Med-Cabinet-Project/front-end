@@ -14,10 +14,16 @@ function Login(props) {
             ...prevState,
             [id]: value
         }))
+
+        console.log('login')
     }
 
     const handleSubmit = e => {
         e.preventDefault();
+        const payload={
+            'email': state.email,
+            'password': state.password
+        }
 
         
     }
@@ -36,7 +42,7 @@ function Login(props) {
             <h1>Med-Cabinet</h1>
         <div className='login-form'>
             <h2>Login</h2>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label htmlFor='email' />
                     <input 
                         type='text'
