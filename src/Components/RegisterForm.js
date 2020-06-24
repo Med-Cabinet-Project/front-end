@@ -52,7 +52,7 @@ function RegisterForm(props) {
             <h1>Med-Cabinet</h1>
         <div className='register-form'>
             <h2>Register</h2>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label htmlFor='email' />
                     <input 
                         type='text'

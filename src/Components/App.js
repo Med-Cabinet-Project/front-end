@@ -10,7 +10,7 @@ import Home from './Home';
 
 
 function App() {
-  const [title, updateTitle] = useState(null);
+  
   return (
     <Router>
       
@@ -29,7 +29,7 @@ function App() {
           <Switch>
 
             <Route path="/register">
-              <RegisterForm updateTitle={updateTitle} />
+              <RegisterForm  />
             </Route>
 
             <Route path="/login">

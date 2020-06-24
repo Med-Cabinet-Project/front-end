@@ -20,10 +20,10 @@ function Login(props) {
 
     const handleSubmit = e => {
         e.preventDefault();
-        const payload={
-            'email': state.email,
-            'password': state.password
-        }
+        // const payload={
+        //     'email': state.email,
+        //     'password': state.password
+        // }
 
         
     }
