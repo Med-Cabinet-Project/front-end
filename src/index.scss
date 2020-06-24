@@ -1,0 +1,216 @@
+$green-1: #059033;
+$green-2: #93CB56;
+$green-3: #7BAA47;
+$green-4: #355A20;
+
+$phone: 800px;
+$table: 1000px;
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-column-text-center {
+    @include flex-column;
+    text-align: center;
+}
+
+@mixin flex-column-all-center{
+    @include flex-column-text-center();
+    align-items: center;
+}
+
+@mixin flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin gradient {
+    background: linear-gradient(45deg, $green-1, $green-2, $green-3, $green-4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@mixin padding-top {
+    padding-top: 10px;
+}
+
+@mixin transform {
+    transform: scale(1.5);
+}
+
+@mixin transition {
+    transition: 600ms linear 0s;
+}
+
+
+body {
+    background-image: url('./Assets/medical2.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 100% 0;
+    background-size:50% 100%;
+    overflow: hidden;
+    cursor: url(http://cur.cursors-4u.net/nature/nat-2/nat120.cur), auto !important;
+    
+
+    @media screen and(max-width: $table) {
+        background-size: cover;
+    }
+
+    @media screen and (max-width: $phone) {
+        background-image: none;
+        margin: auto;
+    }
+}
+
+
+
+.nav {
+    @include flex-column-text-center;
+    @include padding-top;
+    justify-content: space-around;
+    align-items: flex-start;
+    height: 100vh;
+    font-size: 24px;
+    font-weight: 500;
+    cursor: context-menu;
+
+    @media screen and (max-width: $phone) {
+        display: flex;
+        // flex-direction: row;
+        justify-content: space-around;
+        height: auto;
+        // flex-wrap: wrap;
+        margin:auto
+    }
+}
+
+.link {
+    text-decoration: none;
+    padding-bottom: 30px;
+    color: $green-1;
+
+        &:hover {
+            margin:15px;
+            @include transform;
+        }
+
+        @media screen and (max-width: $table) {
+            color: $green-2
+        }
+
+        @media screen and (max-width: $phone) {
+            padding: 0px 80px;
+        }
+}
+
+.home {
+    position: fixed;
+    top: 30%;
+    left: 10%;
+
+    @media screen and(max-width: $table) {
+        width: min-content;
+        margin-left: 4%;
+        
+    }
+
+    @media screen and (max-width: $phone) {
+        left: 18%
+    }
+}
+
+
+.form-links {
+    @include flex-row;
+}
+
+button {
+    margin-top: 10px;
+
+    &:hover {
+        background-color: $green-2;
+    }
+}
+
+form {
+    @include flex-column-all-center;
+    align-content: center;
+    padding: 15px 0 15px 0;
+
+    
+}
+
+.header{
+    text-align: center;
+    padding-top: 5%;
+    font-size: 74px;
+    line-height: 1.2;
+    font-weight: 900;
+    
+}
+
+span:hover{
+    font-size: x-large;
+}
+
+.login-form, .register-form {
+    @include flex-column-all-center;
+    width: fit-content;
+    margin: auto;
+}
+
+.login, .register {
+    margin: 60px;
+    position: fixed;
+    top: 8%;
+    left: 12%;
+    background-size:50% 100%;
+    width: min-content;
+
+    @media screen and(max-width: $table) {
+        width: min-content;
+        margin-left: 3%;
+        top: 0%;
+    }
+
+    @media screen and (max-width: $phone) {
+        width: 77%;
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+}
+
+
+h1 {
+    @include gradient;
+    @include transition;
+    font-size: 88px;
+    font-weight: bolder;
+    text-align: center;
+
+        &:hover {
+            @include gradient;
+            @include transition;
+            transform: rotate(-20deg);
+            text-shadow: none;
+            
+            @media screen and (max-width: $table) {
+                width: min-content;
+                margin-left: 4%;
+            }
+            
+}
+
+h2 {
+    font-size: 24px;
+    margin:0px;
+}
+
+button {
+    background-color: $green-4;
+}
+
+}
