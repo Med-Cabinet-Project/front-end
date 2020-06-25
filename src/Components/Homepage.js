@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
 class HomePage extends React.Component {
