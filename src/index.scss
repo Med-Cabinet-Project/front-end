@@ -3,6 +3,7 @@ $green-2: #93CB56;
 $green-3: #7BAA47;
 $green-4: #355A20;
 
+$small: 400px;
 $phone: 800px;
 $table: 1000px;
 
@@ -32,6 +33,12 @@ $table: 1000px;
     -webkit-text-fill-color: transparent;
 }
 
+@mixin reverse-gradient {
+    background: linear-gradient(45deg, $green-4, $green-3, $green-2, $green-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 @mixin padding-top {
     padding-top: 10px;
 }
@@ -42,6 +49,15 @@ $table: 1000px;
 
 @mixin transition {
     transition: 600ms linear 0s;
+}
+
+@mixin min-width {
+    width: min-content;
+}
+
+@mixin login-register {
+    @include min-width;
+    position: fixed;
 }
 
 
@@ -55,7 +71,7 @@ body {
     cursor: url(http://cur.cursors-4u.net/nature/nat-2/nat120.cur), auto !important;
     
 
-    @media screen and(max-width: $table) {
+    @media screen and (max-width: $table) {
         background-size: cover;
     }
 
@@ -65,70 +81,76 @@ body {
     }
 }
 
+.form-links {
+    @include flex-row;
 
-
-.nav {
-    @include flex-column-text-center;
-    @include padding-top;
-    justify-content: space-around;
-    align-items: flex-start;
-    height: 100vh;
-    font-size: 24px;
-    font-weight: 500;
-    cursor: context-menu;
-
-    @media screen and (max-width: $phone) {
-        display: flex;
-        // flex-direction: row;
+    .nav {
+        @include flex-column-text-center;
+        @include padding-top;
         justify-content: space-around;
-        height: auto;
-        // flex-wrap: wrap;
-        margin:auto
-    }
-}
-
-.link {
-    text-decoration: none;
-    padding-bottom: 30px;
-    color: $green-1;
-
-        &:hover {
-            margin:15px;
-            @include transform;
-        }
-
-        @media screen and (max-width: $table) {
-            color: $green-2
-        }
+        align-items: flex-start;
+        height: 100vh;
+        font-size: 24px;
+        font-weight: 500;
+        cursor: context-menu;
 
         @media screen and (max-width: $phone) {
-            padding: 0px 80px;
+            display: flex;
+            justify-content: space-around;
+            height: auto;
+            margin:auto;
+            align-items: center;
         }
+
+            .link {
+                text-decoration: none;
+                padding-bottom: 30px;
+                color: $green-1;
+
+                    &:hover {
+                        margin:15px;
+                        @include transform;
+                        color: $green-2;
+                    }
+
+                    @media screen and (max-width: $table) {
+                        color: $green-2
+                    }
+
+                    @media screen and (max-width: $phone) {
+                        padding: 0px 80px;
+                    }
+            }
+    }
 }
 
 .home {
     position: fixed;
-    top: 30%;
-    left: 10%;
+    // top: 30%;
+    // left: 10%;
+    margin-top: 14%;
+    margin-left: 13%;
 
-    @media screen and(max-width: $table) {
-        width: min-content;
-        margin-left: 4%;
-        
+    @media screen and (max-width: $table) {
+        @include min-width;
+        margin-top: 27%;
+        margin-left: 13%;
     }
 
     @media screen and (max-width: $phone) {
-        left: 18%
+        margin-top: 33%;
+        margin-left:30%
     }
-}
 
-
-.form-links {
-    @include flex-row;
+    @media screen and (max-width: $small) {
+        margin-top: 51%;
+        margin-left: 22%;
+    }
 }
 
 button {
     margin-top: 10px;
+    background-color: $green-4;
 
     &:hover {
         background-color: $green-2;
@@ -138,9 +160,7 @@ button {
 form {
     @include flex-column-all-center;
     align-content: center;
-    padding: 15px 0 15px 0;
-
-    
+    padding: 8px 0px 0px 0px;
 }
 
 .header{
@@ -149,11 +169,6 @@ form {
     font-size: 74px;
     line-height: 1.2;
     font-weight: 900;
-    
-}
-
-span:hover{
-    font-size: x-large;
 }
 
 .login-form, .register-form {
@@ -162,18 +177,19 @@ span:hover{
     margin: auto;
 }
 
-.login, .register {
-    margin: 60px;
-    position: fixed;
+span:hover{
+    font-size: x-large;
+}
+
+.login {
+    @include login-register;
     top: 8%;
+    margin: 60px;
     left: 12%;
-    background-size:50% 100%;
-    width: min-content;
 
     @media screen and(max-width: $table) {
-        width: min-content;
+        @include min-width;
         margin-left: 3%;
-        top: 0%;
     }
 
     @media screen and (max-width: $phone) {
@@ -183,23 +199,61 @@ span:hover{
     }
 }
 
+.register {
+    @include login-register;
+    left: 14%;
+    
+    @media screen and(max-width: $table) {
+        @include min-width;
+        margin-left: -4%;
+        top: 0%;
+    }
+
+    @media screen and (max-width: $phone) {
+        width: 77%;
+        margin: 12% 0% 0% -2%;
+    }
+
+    @media screen and (max-width: $small) {
+        margin-top:25%;
+        font-size: 1em;
+    }
+}
+
 
 h1 {
     @include gradient;
     @include transition;
+    @include min-width;
     font-size: 88px;
     font-weight: bolder;
     text-align: center;
-
+    margin-left: auto;
+    margin-right: auto;
+    text-transform: uppercase;
+    
         &:hover {
-            @include gradient;
+            @include reverse-gradient;
             @include transition;
             transform: rotate(-20deg);
             text-shadow: none;
             
+        }
             @media screen and (max-width: $table) {
-                width: min-content;
-                margin-left: 4%;
+                @include min-width;
+                font-size: 4em;
+            }
+
+            @media screen and (max-width: $phone) {
+                font-size: 4em;
+                margin-bottom: auto;
+                margin-top: 6%;
+                width: auto;
+            }
+
+            @media screen and (max-width: $small) {
+                font-size: 4em;
+                text-transform: none;
             }
             
 }
@@ -209,8 +263,12 @@ h2 {
     margin:0px;
 }
 
-button {
-    background-color: $green-4;
-}
+.home-profile {
+    @include flex-column-all-center;
+    justify-content: center;
+    margin: 12%;
 
+    .h1-profile {
+        font-size: 48px;
+    }
 }

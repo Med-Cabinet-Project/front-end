@@ -1,95 +1,74 @@
-import React, { useState } from 'react';
-import { withRouter } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
+import { withRouter } from 'react-router-dom'
+import MedForm from './MedForm';
+// import axiosWithAuth from '../utils/axiosWithAuth';
 
-function RegisterForm(props) {
-    const [state, setState] = useState({
-        email:'',
-        password:'',
-        confirmPassword:'',
-        successAlert:''
-    })
+function RegisterForm({ history }) {
+  const initialState = {
+    email: '',
+    password: '',
+    sleep: false,
+    pain: false,
+    eating: false,
+    cancer: false,
+    glaucoma: false,
+    nausea: false,
+    mental: false,
+  }
 
-    const handleChange = (e) => {
-        e.preventDefault();
-        const { id, value } = e.target
-        setState(prevState => ({
-            ...prevState,
-            [id]: value
-        }))
-    }
+  const [register, setRegister] = useState(initialState)
 
-    console.log(state);
+  useEffect(() => {
+    localStorage.clear()
+  }, [])
 
-    // const sendLoginToServer = () => {
-    //     if(state.email.length && state.password.length) {
-    //         props.showError(null);
-    //         const payload={
-    //             'email': state.email,
-    //             'password': state.password,
-    //         }
-    //     }
-    //     axios
-    // }
+  const handleChange = e => {
+    e.preventDefault()
 
-    const redirectToLogin = () => {
-        props.updateTitle('Login')
-        props.history.push('/login');
-    }
-    
-    const handleSubmit = e => {
-        e.preventDefault();
+    setRegister({ ...register, [e.target.name]: e.target.value })
 
-        // if(state.password === confirmPassword) {
-        //     sendLoginToServer()
-        // } else {
-        //     props.showError('Passwords do not match');
-        // }
-        
-    }
+    console.log(register)
+  }
 
-    return(
-        <div className='register'>
-            <h1>Med-Cabinet</h1>
-        <div className='register-form'>
-            <h2>Register</h2>
-            <form>
-                <label htmlFor='email' />
-                    <input 
-                        type='text'
-                        id='email'
-                        placeholder='Email'
-                        value={state.email}
-                        onChange={handleChange}
-                        required
-                    />
-                    <input 
-                        type='text'
-                        id='password'
-                        placeholder='Password'
-                        value={state.password}
-                        onChange={handleChange}
-                        required
-                    />
-                    <input 
-                        type='text'
-                        id='confirm-password'
-                        placeholder='Confirm Password'
-                        // value={state.confirmPassword}
-                        onChange={handleChange}
-                        required
-                    />
-                    <button type='submit'>Register</button>
+  const handleSubmit = e => {
+    e.preventDefault()
 
-                    {/* add onChange once handleSubmit is completed */}
-            </form>
-            <div className='redirect'> 
-                <p>Already have an account?</p>
-                <span onClick={() => redirectToLogin()}>Login Here</span>
-    
-            </div>
+    console.log({ register })
+  }
+
+  return (
+    <div className="register">
+      <h1>Med-Cabinet</h1>
+      <div className="register-form">
+        <h2>Register</h2>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="email" />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={register.email}
+            onChange={e => handleChange(e)}
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={register.password}
+            onChange={e => handleChange(e)}
+            required
+          />
+          <MedForm register={register} handleChange={handleChange} />
+          <button type="submit">Register</button>
+        </form>
+        <div className="redirect">
+          <p>Already have an account?</p>
         </div>
-        </div>
-    );
-};
+      </div>
+    </div>
+  )
+}
 
-export default withRouter(RegisterForm);
+export default withRouter(RegisterForm)
+
