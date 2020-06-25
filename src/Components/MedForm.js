@@ -3,7 +3,7 @@ import { Card, Form, FormGroup, Label, Button, Input } from 'reactstrap';
 import * as yup from 'yup';
 import axios from 'axios';
 
-const MedForm = () => {
+const MedForm = ({register}) => {
   const [formData, setFormData] = useState({
     sleep: false,
     pain: false,
