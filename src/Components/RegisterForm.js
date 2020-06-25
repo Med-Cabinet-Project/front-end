@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
-// import MedForm from './MedForm';
+import MedForm from './MedForm';
 // import axiosWithAuth from '../utils/axiosWithAuth';
 
 function RegisterForm({ history }) {
   const initialState = {
     email: '',
     password: '',
+    sleep: false,
+    pain: false,
+    eating: false,
+    cancer: false,
+    glaucoma: false,
+    nausea: false,
+    mental: false,
   }
 
   const [register, setRegister] = useState(initialState)
@@ -52,6 +59,7 @@ function RegisterForm({ history }) {
             onChange={e => handleChange(e)}
             required
           />
+          <MedForm register={register} handleChange={handleChange} />
           <button type="submit">Register</button>
         </form>
         <div className="redirect">
