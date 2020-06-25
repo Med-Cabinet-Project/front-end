@@ -9,7 +9,7 @@ class HomePage extends React.Component {
     }
 
     getStrainsList = e => {
-        const token = JSON.parse(localStorage.getItem('token'))
+        // const token = JSON.parse(localStorage.getItem('token'))
 
         axiosWithAuth()
         .get('./api/strains')

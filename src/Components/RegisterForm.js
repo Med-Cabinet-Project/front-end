@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import MedForm from './MedForm';
-// import axiosWithAuth from '../utils/axiosWithAuth';
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 function RegisterForm({ history }) {
   const initialState = {
@@ -33,6 +33,17 @@ function RegisterForm({ history }) {
   const handleSubmit = e => {
     e.preventDefault()
 
+    axiosWithAuth()
+        .post('api/auth/register', register)
+        .then(response => {
+            console.log(response.data);
+            localStorage.setItem('token', response.data.payload)
+            history.push('/protected')
+        }) 
+        .catch(error => {
+            console.log(error)
+        })
+
     console.log({ register })
   }
 
@@ -57,6 +68,7 @@ function RegisterForm({ history }) {
             placeholder="Password"
             value={register.password}
             onChange={e => handleChange(e)}
+            minLength='6'
             required
           />
           <MedForm register={register} handleChange={handleChange} />

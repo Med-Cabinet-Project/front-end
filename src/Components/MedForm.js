@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { Card, Form, FormGroup, Label, Button, Input } from 'reactstrap';
+import React from 'react';
+import { FormGroup, Label, Input } from 'reactstrap';
 import * as yup from 'yup';
-import axios from 'axios';
 
 const MedForm = ({ register, handleChange }) => {
   // const [register, setRegister] = useState({
@@ -14,15 +13,15 @@ const MedForm = ({ register, handleChange }) => {
   //   mental: false,
   // });
 
-  const schema = yup.object().shape({
-    sleep: yup.boolean(),
-    pain: yup.boolean(),
-    eating: yup.boolean(),
-    cancer: yup.boolean(),
-    glaucoma: yup.boolean(),
-    nausea: yup.boolean(),
-    mental: yup.boolean(),
-  })
+  // const schema = yup.object().shape({
+  //   sleep: yup.boolean(),
+  //   pain: yup.boolean(),
+  //   eating: yup.boolean(),
+  //   cancer: yup.boolean(),
+  //   glaucoma: yup.boolean(),
+  //   nausea: yup.boolean(),
+  //   mental: yup.boolean(),
+  // })
   
   
   return(

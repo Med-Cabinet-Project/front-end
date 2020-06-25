@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { withRouter } from 'react-router-dom';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
@@ -7,7 +7,6 @@ class Login extends React.Component {
        credentials: {
         email:'',
         password:'',
-        successAlert:''
        }
     }
 
@@ -17,7 +16,6 @@ class Login extends React.Component {
 
     redirectToRegister = () => {
         this.props.history.push('/register'); 
-        // props.updateTitle('Register');
     };
 
     handleSubmit = e => {
@@ -44,7 +42,7 @@ class Login extends React.Component {
             }
         });
         
-        console.log(this.state.credentials.email);
+        console.log(this.state.credentials);
     };
 
     render(){
@@ -57,17 +55,17 @@ class Login extends React.Component {
                                 <label htmlFor='email' />
                                     <input 
                                         type='text'
-                                        id='email'
+                                        name='email'
                                         placeholder='Email'
-                                        // value={this.state.credentials.email}
+                                        value={this.state.credentials.email}
                                         onChange={this.handleChange}
                                         required
                                     />
                                     <input 
                                         type='password'
-                                        id='password'
+                                        name='password'
                                         placeholder='Password'
-                                        // value={this.state.credentials.password}
+                                        value={this.state.credentials.password}
                                         onChange={this.handleChange}
                                         required
                                     />
