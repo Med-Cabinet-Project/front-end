@@ -1,17 +1,9 @@
-import React, { useState } from 'react';
-import { Card, Form, FormGroup, Label, Button, Input } from 'reactstrap';
+import React from 'react';
+import { FormGroup, Label, Input } from 'reactstrap';
 import * as yup from 'yup';
 
-const MedForm = ({ register, handleChange }) => {
-  // const [register, setRegister] = useState({
-  //   sleep: false,
-  //   pain: false,
-  //   eating: false,
-  //   cancer: false,
-  //   glaucoma: false,
-  //   nausea: false,
-  //   mental: false,
-  // });
+const MedForm = ({ credentials, handleChange }) => {
+
 
   const schema = yup.object().shape({
     depression: yup.boolean(),
@@ -56,91 +48,91 @@ const MedForm = ({ register, handleChange }) => {
       
       <FormGroup check>
         <Label check>
-          <Input type='checkbox' name='insomnia' checked={register.insomnia} onChange={handleChange} />
+          <Input type='checkbox' name='insomnia' checked={credentials.insomnia} onChange={handleChange} />
           Insomnia
         </Label>
       </FormGroup>
 
       <FormGroup check>
         <Label check>
-          <Input type='checkbox' name='depression' checked={register.depression} onChange={handleChange} />
+          <Input type='checkbox' name='depression' checked={credentials.depression} onChange={handleChange} />
           Depression
         </Label>
       </FormGroup>
 
       <FormGroup check>
         <Label check>
-          <Input type='checkbox' name='eye' checked={register.eye} onChange={handleChange} />
+          <Input type='checkbox' name='eye' checked={credentials.eye} onChange={handleChange} />
           Eye Pressure
         </Label>
       </FormGroup>
 
       <FormGroup check>
         <Label check>
-          <Input type='checkbox' name='fatigue' checked={register.fatigue} onChange={handleChange} />
+          <Input type='checkbox' name='fatigue' checked={credentials.fatigue} onChange={handleChange} />
           Fatigue
         </Label>
       </FormGroup>
 
       <FormGroup check>
         <Label check>
-          <Input type='checkbox' name='headaches' checked={register.headaches} onChange={handleChange} />
+          <Input type='checkbox' name='headaches' checked={credentials.headaches} onChange={handleChange} />
           Headaches
         </Label>
       </FormGroup>
 
       <FormGroup check>
         <Label check>
-          <Input type='checkbox' name='inflammation' checked={register.inflammation} onChange={handleChange} />
+          <Input type='checkbox' name='inflammation' checked={credentials.inflammation} onChange={handleChange} />
           Inflammation
         </Label>
       </FormGroup>
 
       <FormGroup check>
         <Label check>
-          <Input type='checkbox' name='eating' checked={register.eating} onChange={handleChange} />
+          <Input type='checkbox' name='eating' checked={credentials.eating} onChange={handleChange} />
           Lack of Appetite
         </Label>
       </FormGroup>
 
       <FormGroup check>
         <Label check>
-          <Input type='checkbox' name='spasms' checked={register.spasms} onChange={handleChange} />
+          <Input type='checkbox' name='spasms' checked={credentials.spasms} onChange={handleChange} />
           Muscle Spasms
         </Label>
       </FormGroup>
 
       <FormGroup check>
         <Label check>
-          <Input type='checkbox' name='nausea' checked={register.nausea} onChange={handleChange} />
+          <Input type='checkbox' name='nausea' checked={credentials.nausea} onChange={handleChange} />
           Nausea
         </Label>
       </FormGroup>
 
       <FormGroup check>
         <Label check>
-          <Input type='checkbox' name='pain' checked={register.pain} onChange={handleChange} />
+          <Input type='checkbox' name='pain' checked={credentials.pain} onChange={handleChange} />
           Pain
         </Label>
       </FormGroup>
 
       <FormGroup check>
         <Label check>
-          <Input type='checkbox' name='seizures' checked={register.seizures} onChange={handleChange} />
+          <Input type='checkbox' name='seizures' checked={credentials.seizures} onChange={handleChange} />
           Seizures
         </Label>
       </FormGroup>
 
       <FormGroup check>
         <Label check>
-          <Input type='checkbox' name='spasticity' checked={register.spasticity} onChange={handleChange} />
+          <Input type='checkbox' name='spasticity' checked={credentials.spasticity} onChange={handleChange} />
           Spasticity
         </Label>
       </FormGroup>
 
       <FormGroup check>
         <Label check>
-          <Input type='checkbox' name='stress' checked={register.stress} onChange={handleChange} />
+          <Input type='checkbox' name='stress' checked={credentials.stress} onChange={handleChange} />
           Stress
         </Label>
       </FormGroup>
@@ -152,80 +144,80 @@ const MedForm = ({ register, handleChange }) => {
       
       <FormGroup check>
         <Label check>
-          <Input type='checkbox' name='creative' checked={register.creative} onChange={handleChange} />
+          <Input type='checkbox' name='creative' checked={credentials.creative} onChange={handleChange} />
           Creative
         </Label>
       </FormGroup>
       <FormGroup check>
         <Label check>
-          <Input type='checkbox' name='energetic' checked={register.energetic} onChange={handleChange} />
+          <Input type='checkbox' name='energetic' checked={credentials.energetic} onChange={handleChange} />
           Energetic
         </Label>
       </FormGroup>
       <FormGroup check>
         <Label check>
-          <Input type='checkbox' name='euphoric' checked={register.euphoric} onChange={handleChange} />
+          <Input type='checkbox' name='euphoric' checked={credentials.euphoric} onChange={handleChange} />
           Euphoric
         </Label>
       </FormGroup>
       <FormGroup check>
         <Label check>
-          <Input type='checkbox' name='focused' checked={register.focused} onChange={handleChange} />
+          <Input type='checkbox' name='focused' checked={credentials.focused} onChange={handleChange} />
           Focused
         </Label>
       </FormGroup>
       <FormGroup check>
         <Label check>
-          <Input type='checkbox' name='giggly' checked={register.giggly} onChange={handleChange} />
+          <Input type='checkbox' name='giggly' checked={credentials.giggly} onChange={handleChange} />
           Giggly
         </Label>
       </FormGroup>
       <FormGroup check>
         <Label check>
-          <Input type='checkbox' name='happy' checked={register.happy} onChange={handleChange} />
+          <Input type='checkbox' name='happy' checked={credentials.happy} onChange={handleChange} />
           Happy
         </Label>
       </FormGroup>
       <FormGroup check>
         <Label check>
-          <Input type='checkbox' name='hungry' checked={register.hungry} onChange={handleChange} />
+          <Input type='checkbox' name='hungry' checked={credentials.hungry} onChange={handleChange} />
           Hungry
         </Label>
       </FormGroup>
       <FormGroup check>
         <Label check>
-          <Input type='checkbox' name='relaxed' checked={register.relaxed} onChange={handleChange} />
+          <Input type='checkbox' name='relaxed' checked={credentials.relaxed} onChange={handleChange} />
           Relaxed
         </Label>
       </FormGroup>
       <FormGroup check>
         <Label check>
-          <Input type='checkbox' name='sleepy' checked={register.sleepy} onChange={handleChange} />
+          <Input type='checkbox' name='sleepy' checked={credentials.sleepy} onChange={handleChange} />
           Sleepy
         </Label>
       </FormGroup>
       <FormGroup check>
         <Label check>
-          <Input type='checkbox' name='talkative' checked={register.talkative} onChange={handleChange} />
+          <Input type='checkbox' name='talkative' checked={credentials.talkative} onChange={handleChange} />
           Talkative
         </Label>
       </FormGroup>
       <FormGroup check>
         <Label check>
-          <Input type='checkbox' name='tingly' checked={register.tingly} onChange={handleChange} />
+          <Input type='checkbox' name='tingly' checked={credentials.tingly} onChange={handleChange} />
           Tingly
         </Label>
       </FormGroup>
       <FormGroup check>
         <Label check>
-          <Input type='checkbox' name='uplifted' checked={register.uplifted} onChange={handleChange} />
+          <Input type='checkbox' name='uplifted' checked={credentials.uplifted} onChange={handleChange} />
           Uplifted
         </Label>
       </FormGroup>
     </FormGroup>
     <FormGroup>
       <legend>Any Other Details</legend>
-        <Input type='textarea' name='other' value={register.other} onChange={handleChange} />
+        <Input type='textarea' name='other' value={credentials.other} onChange={handleChange} />
     </FormGroup>
     </>
   )
