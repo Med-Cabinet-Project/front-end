@@ -1,4 +1,3 @@
-import React from 'react';
 import axios from 'axios'
 
 const axiosWithAuth = () => {
@@ -7,7 +6,7 @@ const axiosWithAuth = () => {
 
     return (
         axios.create({
-            baseURL: "https://medcab23.herokuapp.com/",
+            baseURL: "https://medcab23.herokuapp.com",
             headers: { Authorization: token }
         })
 
