@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { withRouter } from 'react-router-dom'
+// import { withRouter } from 'react-router-dom'
 import MedForm from './MedForm';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
@@ -124,5 +124,5 @@ function RegisterForm({ history }) {
   )
 }
 
-export default withRouter(RegisterForm)
+export default RegisterForm;
 
