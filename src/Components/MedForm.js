@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Card, Form, FormGroup, Label, Button, Input } from 'reactstrap';
 import * as yup from 'yup';
-import axios from 'axios';
 
 const MedForm = ({ register, handleChange }) => {
   // const [register, setRegister] = useState({
