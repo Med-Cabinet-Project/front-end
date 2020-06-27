@@ -28,8 +28,8 @@ function App() {
           </div>
 
           <Switch>
-            <Route path='/profile' component={UserProfile} />
-            <Route path='/homepage' component={HomePage} />
+            <PrivateRoute path='/profile' component={UserProfile} />
+            <PrivateRoute path='/homepage' component={HomePage} />
             <Route path='/register' component={RegisterForm} />
             <Route path='/login' component={Login} />
             <Route path='/' component={Home} />
