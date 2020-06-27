@@ -7,16 +7,18 @@ function RegisterForm({ history }) {
   const initialState = {
     email: '',
     password: '',
-    sleep: false,
-    pain: false,
-    eating: false,
-    cancer: false,
-    glaucoma: false,
-    nausea: false,
-    mental: false,
+    first_name:'',
+    last_name:'',
+    // sleep: false,
+    // pain: false,
+    // eating: false,
+    // cancer: false,
+    // glaucoma: false,
+    // nausea: false,
+    // mental: false,
   }
 
-  const [register, setRegister] = useState(initialState)
+  const [credentials, setCredentials] = useState(initialState)
 
   useEffect(() => {
     localStorage.clear()
@@ -25,26 +27,30 @@ function RegisterForm({ history }) {
   const handleChange = e => {
     e.preventDefault()
 
-    setRegister({ ...register, [e.target.name]: e.target.value })
+    setCredentials({ ...credentials, [e.target.name]: e.target.value })
 
-    console.log(register)
+    console.log(credentials)
   }
+
+  const redirectToLogin = () => {
+    history.push('/login'); 
+};
 
   const handleSubmit = e => {
     e.preventDefault()
 
     axiosWithAuth()
-        .post('api/auth/register', register)
+        .post('/api/auth/register', credentials)
         .then(response => {
             console.log(response.data);
             localStorage.setItem('token', response.data.payload)
-            history.push('/protected')
+            history.push('/homepage')
         }) 
         .catch(error => {
             console.log(error)
         })
 
-    console.log({ register })
+    console.log({ credentials })
   }
 
   return (
@@ -55,10 +61,26 @@ function RegisterForm({ history }) {
         <form onSubmit={handleSubmit}>
           <label htmlFor="email" />
           <input
+            type="text"
+            name="first_name"
+            placeholder="First Name"
+            value={credentials.first_name}
+            onChange={e => handleChange(e)}
+            required
+          />
+          <input
+            type="text"
+            name="last_name"
+            placeholder="Last Name"
+            value={credentials.last_name}
+            onChange={e => handleChange(e)}
+            required
+          />
+          <input
             type="email"
             name="email"
             placeholder="Email"
-            value={register.email}
+            value={credentials.email}
             onChange={e => handleChange(e)}
             required
           />
@@ -66,16 +88,17 @@ function RegisterForm({ history }) {
             type="password"
             name="password"
             placeholder="Password"
-            value={register.password}
+            value={credentials.password}
             onChange={e => handleChange(e)}
             minLength='6'
             required
           />
-          <MedForm register={register} handleChange={handleChange} />
+          <MedForm credentials={credentials} handleChange={handleChange} />
           <button type="submit">Register</button>
         </form>
-        <div className="redirect">
-          <p>Already have an account?</p>
+        <div className='redirect'>
+            <p>Already have an account?</p>
+            <span onClick={() => redirectToLogin()}>Login Here</span>
         </div>
       </div>
     </div>

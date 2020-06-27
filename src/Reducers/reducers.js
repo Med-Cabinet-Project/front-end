@@ -7,7 +7,7 @@ const initialState ={
 }
 
 function reducer(state = initialState, action) {
-    console.log('reducer', action.payload);
+    console.log( action.payload);
     switch(action.type){
         case FETCH_RECOMMEND_START:
             return{
@@ -17,7 +17,7 @@ function reducer(state = initialState, action) {
                 recommend:[]
             };
         case FETCH_RECOMMEND_SUCCESS:
-            console.log(action.payload);
+            console.log("action.payload");
             return{
                 ...state,
                 isFetching: false,

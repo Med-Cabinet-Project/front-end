@@ -6,7 +6,7 @@ const axiosWithAuth = () => {
 
     return (
         axios.create({
-            baseURL: "https://medcab23.herokuapp.com/",
+            baseURL: "https://medcab23.herokuapp.com",
             headers: { Authorization: token }
         })
 

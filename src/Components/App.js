@@ -7,7 +7,8 @@ import '../index.scss';
 import RegisterForm from './RegisterForm';
 import Login from './Login';
 import Home from './Home';
-import HomePage from './Homepage';
+import HomePage from './HomePage/Homepage';
+import UserProfile from '../Components/Profile/ProfileInfo'
 import { PrivateRoute } from './PrivateRoute';
 
 
@@ -20,13 +21,15 @@ function App() {
         <div className='form-links'>
           <div className='nav'>
             <Link to='/' className='link'>Home</Link>
-            <Link to='/login' className='link'>Login</Link>
             <Link to='/register' className='link'>Register</Link>
-            <Link to='/protected' className='link'>Welcome</Link>
+            <Link to='/login' className='link'>Login</Link>
+            <Link to='/homepage' className='link'>Recs</Link>
+            <Link to='/profile' className='link'>Profile</Link>
           </div>
 
           <Switch>
-            <Route path='/protected' component={HomePage} />
+            <Route path='/profile' component={UserProfile} />
+            <Route path='/homepage' component={HomePage} />
             <Route path='/register' component={RegisterForm} />
             <Route path='/login' component={Login} />
             <Route path='/' component={Home} />

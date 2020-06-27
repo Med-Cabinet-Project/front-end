@@ -60,6 +60,13 @@ $table: 1000px;
     position: fixed;
 }
 
+@mixin hover-transiton {
+    @include reverse-gradient;
+    @include transition;
+    transform: rotate(-20deg);
+    text-shadow: none;
+}
+
 
 body {
     background-image: url('./Assets/medical2.jpg');
@@ -67,7 +74,7 @@ body {
     background-attachment: fixed;
     background-position: 100% 0;
     background-size:50% 100%;
-    overflow: hidden;
+    // overflow: hidden;
     cursor: url(http://cur.cursors-4u.net/nature/nat-2/nat120.cur), auto !important;
     
 
@@ -93,13 +100,14 @@ body {
         font-size: 24px;
         font-weight: 500;
         cursor: context-menu;
+        position: fixed;
 
         @media screen and (max-width: $phone) {
-            display: flex;
-            justify-content: space-around;
-            height: auto;
-            margin:auto;
-            align-items: center;
+            @include flex-row;
+            flex-wrap: wrap;
+            justify-content: start;
+            height: 0;
+            font-size: smaller;
         }
 
             .link {
@@ -119,6 +127,7 @@ body {
 
                     @media screen and (max-width: $phone) {
                         padding: 0px 80px;
+                        
                     }
             }
     }
@@ -233,10 +242,7 @@ h1 {
     text-transform: uppercase;
     
         &:hover {
-            @include reverse-gradient;
-            @include transition;
-            transform: rotate(-20deg);
-            text-shadow: none;
+            @include hover-transiton;
             
         }
             @media screen and (max-width: $table) {
@@ -266,9 +272,78 @@ h2 {
 .home-profile {
     @include flex-column-all-center;
     justify-content: center;
-    margin: 12%;
+    margin-left: 15%;
 
     .h1-profile {
         font-size: 48px;
+    }
+}
+
+.uc {
+    @include flex-row;
+    justify-content: space-between;
+    align-items: baseline;
+    text-align: center;
+
+    .u-card {
+        padding-top: 16%;
+        padding-right: 13%;
+    }
+
+    .u-card2 {
+        padding-left:2%
+    }
+}
+
+
+.advice-list {
+    border: 1px solid black;
+}
+
+.character {
+    width: 20%;
+    text-align: center;
+    margin: 40px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.info {
+    @include flex-row;
+}
+
+.Profile-Page {
+    text-align: center;
+    margin-top: 5%;
+    margin-left: 17%;
+
+    h2 {
+        @include gradient;
+        @include transition;
+        font-size: 3em;
+
+        &:hover {
+            @include hover-transiton;
+        }
+    }
+
+    .pc {
+        @include flex-row;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .p-card {
+        padding-top: 16%;
+        padding-bottom: 0;
+    }
+
+    h3 {
+        @include gradient;
+        @include transition;
+        font-size: 2.5em;
+
+        &:hover {
+            @include hover-transiton;
+        }
     }
 }
