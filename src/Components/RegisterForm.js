@@ -7,13 +7,34 @@ function RegisterForm({ history }) {
   const initialState = {
     email: '',
     password: '',
-    sleep: false,
-    pain: false,
-    eating: false,
-    cancer: false,
-    glaucoma: false,
-    nausea: false,
-    mental: false,
+     // symptoms
+     depression: false,
+     insomnia: false,
+     eye: false,
+     fatigue: false,
+     headaches: false,
+     inflammation: false,
+     eating: false,
+     spasms: false,
+     pain: false,
+     seizures: false, 
+     spasticity: false,
+     stress: false,
+     nausea: false,
+     // positive effects
+     creative: false,
+     energetic: false,
+     euphoric: false,
+     focused: false,
+     giggly: false,
+     happy: false,
+     hungry: false,
+     relaxed: false,
+     sleepy: false,
+     talkative: false,
+     tingly: false,
+     uplifted: false,
+     other: ''
   }
 
   const [register, setRegister] = useState(initialState)
