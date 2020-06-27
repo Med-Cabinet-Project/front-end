@@ -46,7 +46,7 @@ function RegisterForm({ history }) {
   const handleChange = e => {
     e.preventDefault()
 
-    setRegister({ ...register, [e.target.name]: e.target.value })
+    setRegister(() => ({ ...register, [e.target.name]: e.target.value }))
 
     console.log(register)
   }

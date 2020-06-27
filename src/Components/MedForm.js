@@ -44,11 +44,12 @@ const MedForm = ({ register, handleChange }) => {
   
   
   return (
-
+    
     // <Form onSubmit={(e) => {
     //     e.preventDefault()
     //     submit()
     // }}>
+    <>
     <FormGroup tag='fieldset'>
       <legend>Medicinal Symptons</legend>
       <legend>Must Select 2</legend>
@@ -144,7 +145,7 @@ const MedForm = ({ register, handleChange }) => {
         </Label>
       </FormGroup>
     </FormGroup>
-
+    
     <FormGroup tag='fieldset'>
       <legend>Positive Effects</legend>
       <legend>Must Select 2</legend>
@@ -226,6 +227,7 @@ const MedForm = ({ register, handleChange }) => {
       <legend>Any Other Details</legend>
         <Input type='textarea' name='other' value={register.other} onChange={handleChange} />
     </FormGroup>
+    </>
   )
 }
 
