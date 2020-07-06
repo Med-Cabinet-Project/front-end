@@ -37,10 +37,6 @@ const MedForm = ({ credentials, handleChange }) => {
   
   return (
     
-    // <Form onSubmit={(e) => {
-    //     e.preventDefault()
-    //     submit()
-    // }}>
     <>
     <FormGroup tag='fieldset'>
       <legend>Medicinal Symptons</legend>

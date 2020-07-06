@@ -28,7 +28,7 @@ function App() {
           </div>
 
           <Switch>
-            <PrivateRoute path='/profile' component={UserProfile} />
+            <Route path='/profile' component={UserProfile} />
             <PrivateRoute path='/homepage' component={HomePage} />
             <Route path='/register' component={RegisterForm} />
             <Route path='/login' component={Login} />
