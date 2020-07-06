@@ -19,43 +19,45 @@ function UserProfile() {
   const params = useParams();
   const { push } = useHistory();
 
-  const fetchData = (id) => {
-    axiosWithAuth()
-      .get(`http://UPDATE/${id}`)
-      .then((res) => setData(res.data))
-      .catch((err) => console.log(err.response));
-  };
+  // const fetchData = (id) => {
+  //   axiosWithAuth()
+  //     .get(`http://UPDATE/${id}`)
+  //     .then((res) => setData(res.data))
+  //     .catch((err) => console.log(err.response));
+  // };
 
-  useEffect(() => {
-    fetchData(params.id);
-  }, [params.id]);
+  // useEffect(() => {
+  //   fetchData(params.id);
+  // }, [params.id]);
 
-  if (!data) {
-    return <div>Loading user information...</div>;
-  }
+  // if (!data) {
+  //   return <div>Loading user information...</div>;
+  // }
 
   const handleUpdate = e => {
-    // e.preventDefault();
-    axiosWithAuth()
-    .put(`UPDATE/${params.id}`, data)
-    .then(res => {
-      push('UPDATE/${params.id}');
-    })
-    .catch(err =>
-      console.error("ProfileInfo.js: handleUpdate: err ", err.message, err.response)
-      );
+    e.preventDefault();
+      
+    // axiosWithAuth()
+    // .put(`UPDATE/${params.id}`, data)
+    // .then(res => {
+    //   push(`UPDATE/${params.id}`);
+    // })
+    // .catch(err =>
+    //   console.error("ProfileInfo.js: handleUpdate: err ", err.message, err.response)
+    //   );
   }
 
   const handleChange = e => {
-    e.persist();
-    let value =  e.target.value;
-    if(e.target.name === 'first_name') {
-        value = parseInt(value, 10);
-    }
+    // e.persist();
+    // let value =  e.target.value;
+    // if(e.target.name === 'first_name') {
+    //     value = parseInt(value, 10);
+    // setData(e.target.value)
+    
 
     setData({
         ...data,
-        [e.target.name]: value
+        [e.target.name]:e.target.value
     });
   };
 
@@ -70,29 +72,29 @@ function UserProfile() {
                     type='text'
                     name='first_name'
                     placeholder='First Name'
-                    onChange={handleChange}
-                    // value={item.title}
+                    onChange={e => handleChange(e)}
+                    value={setData.first_name}
                 />
                 <input 
                     type='text'
                     name='last_name'
                     placeholder='Last Name'
-                    onChange={handleChange}
-                    // value={item.director}
+                    onChange={e => handleChange(e)}
+                    // value={setData.last_name}
                 />
                 <input 
                     type='email'
                     name='email'
                     placeholder='Email'
-                    onChange={handleChange}
-                    // value={item.metascore}
+                    onChange={e => handleChange(e)}
+                    // value={setData.email}
                 />
                 <input 
                     type='password'
                     name='password'
                     placeholder='Password'
-                    onChange={handleChange}
-                    // value={item.stars}
+                    onChange={e => handleChange(e)}
+                    // value={setData.password}
                 />
                 <button type='submit'>Update</button>
             </form>

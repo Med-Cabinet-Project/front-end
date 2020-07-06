@@ -5,6 +5,8 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 
 function RegisterForm({ history }) {
   const initialState = {
+    first_name:'',
+    last_name:'',
     email: '',
     password: '',
      // symptoms
@@ -21,7 +23,7 @@ function RegisterForm({ history }) {
      spasticity: false,
      stress: false,
      nausea: false,
-     // positive effects
+    //  positive effects
      creative: false,
      energetic: false,
      euphoric: false,
